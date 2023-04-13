@@ -2,8 +2,9 @@ import { Col, Row } from "react-grid-system"
 import GrupoRadio from "../../componentes/Radio/GrupoRadio"
 import { Tipografia } from "../../componentes/Tipografia/Tipografia"
 import { Botao } from "../../componentes/Botao/Botao"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario"
+import { useEffect } from "react"
 
 const opcoes = [
     {
@@ -34,7 +35,15 @@ const opcoes = [
 
 const Interesses = () => {
 
-    const { usuario, setInteresse} = useCadastroUsuarioContext()
+    const { usuario, setInteresse, possoSelecionarInteresse} = useCadastroUsuarioContext()
+
+    const navegar = useNavigate()
+
+    useEffect(()=> {
+        if (!possoSelecionarInteresse()){
+            navegar('/cadastro')
+        }
+    },[navegar, possoSelecionarInteresse])
 
     return (
         <div style={{ textAlign: 'center' }}>
