@@ -49,7 +49,6 @@ const Interesses = () => {
                 <Col lg={6} md={6} sm={6}>
                 <Link to='/cadastro'>
                     <Botao variante="secundaria">
-                        
                         Anterior
                     </Botao>
                 </Link> 
