@@ -52,7 +52,11 @@ const DadosPessoais = () => {
             </div>
             <Row>
               <Col>
-                <CampoTexto titulo="Nome Completo" />
+                <CampoTexto 
+                  titulo="Nome Completo" 
+                  valor={usuario.nomeCompleto} 
+                  onChange={setNomeCompleto}
+                />
               </Col>
             </Row>
             <Row>
