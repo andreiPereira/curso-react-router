@@ -38,10 +38,15 @@ const estadosBrasileiros = [
 
 const DadosPessoais = () => {
 
-    const { usuario , setNomeCompleto} = useCadastroUsuarioContext()
+    const { usuario , setNomeCompleto , submeterUsuario} = useCadastroUsuarioContext()
+
+    const finalizarCadastro = (evento) => {
+      evento.preventDefault();
+      submeterUsuario();
+    }
 
     return (
-        <div>
+        <form onSubmit={finalizarCadastro}>
             <div style={{ textAlign: 'center' }}>
                 <Tipografia variante='h1' componente='h1'>
                     Crie seu cadastro
@@ -90,15 +95,15 @@ const DadosPessoais = () => {
                 </Col>
                 <Col lg={6} md={6} sm={6}>
                     <div style={{ textAlign: 'right' }}>
-                        <Link to='/cadastro/concluido'>
+                        {/* <Link to='/cadastro/concluido'> */}
                             <Botao>
                                 Próxima
                             </Botao>
-                        </Link>
+                        {/* </Link> */}
                     </div>
                 </Col>
             </Row>
-        </div>
+        </form>
 
     )
 }
