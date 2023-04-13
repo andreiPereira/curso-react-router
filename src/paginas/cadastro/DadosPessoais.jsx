@@ -4,6 +4,7 @@ import { Botao } from "../../componentes/Botao/Botao"
 import { Link } from "react-router-dom"
 import {CampoTexto} from "../../componentes/CampoTexto/CampoTexto"
 import { ListaSupensa } from "../../componentes/ListaSuspensa/ListaSuspensa"
+import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario"
 
 const estadosBrasileiros = [
     { "text": "Acre", "value": "AC" },
@@ -36,6 +37,8 @@ const estadosBrasileiros = [
   ]
 
 const DadosPessoais = () => {
+
+    const { usuario , setNomeCompleto} = useCadastroUsuarioContext()
 
     return (
         <div>
